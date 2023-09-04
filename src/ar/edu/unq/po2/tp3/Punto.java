@@ -14,6 +14,7 @@ public class Punto {
 		setX(x);
 		setY(y);
 	}
+	
 
 	public float getX() {
 		return x;
