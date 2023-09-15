@@ -2,6 +2,7 @@ package ar.edu.unq.po2.tp2.employee;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 import ar.edu.unq.po2.tp2.paySlip.Concept;
 
@@ -19,8 +20,8 @@ public class Permanent extends Employee {
 	}
 
 	@Override
-	public ArrayList<Concept> concepts(ArrayList<Concept> concepts) {
-		final ArrayList<Concept> conceptsPermanent = new ArrayList<>();
+	public List<Concept> concepts(List<Concept> concepts) {
+		final List<Concept> conceptsPermanent = new ArrayList<>();
 		conceptsPermanent.add(new Concept("Child Allowance: ", childAllowance()));
 		conceptsPermanent.add(new Concept("Marital Allowance: ", maritalAllowance()));
 		conceptsPermanent.add(new Concept("Antiquity: ", getAntiquity() * 50));

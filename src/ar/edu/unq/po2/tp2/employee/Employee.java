@@ -3,6 +3,7 @@ package ar.edu.unq.po2.tp2.employee;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -16,7 +17,7 @@ public abstract class Employee {
 	private MaritalStatus maritalStatus;
 	private double minimumSalary;
 	private String name;
-	private ArrayList<PaySlip> paySlips;
+	private List<PaySlip> paySlips;
 
 	public Employee(String adress, LocalDate birthDate, MaritalStatus maritalStatus, double minimumSalary,
 			String name) {
@@ -64,11 +65,11 @@ public abstract class Employee {
 		this.name = name;
 	}
 	
-	public ArrayList<Concept> concepts() {
+	public List<Concept> concepts() {
 		return concepts(new ArrayList<Concept>());
 	}
 
-	public ArrayList<Concept> concepts(ArrayList<Concept> concepts) {
+	public List<Concept> concepts(List<Concept> concepts) {
 		final ArrayList<Concept> conceptsEmployee = new ArrayList<Concept>();
 		concepts.add(new Concept("Medical Insurance: ", medicalInsurance()));
 		concepts.add(new Concept("Dues To A Pension Fund: ", duesToAPensionFund()));
@@ -98,7 +99,7 @@ public abstract class Employee {
 		return name;
 	}
 
-	public ArrayList<PaySlip> getPaySlips() {
+	public List<PaySlip> getPaySlips() {
 		return paySlips;
 	}
 

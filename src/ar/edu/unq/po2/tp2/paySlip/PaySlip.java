@@ -3,20 +3,20 @@ package ar.edu.unq.po2.tp2.paySlip;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-
+import java.util.List;
 
 import ar.edu.unq.po2.tp2.employee.Employee;
 
 public class PaySlip {
 
 	private String adress;
-	private ArrayList<Concept> concepts;
+	private List<Concept> concepts;
 	private LocalDateTime dateOfIssue;
 	private String employeeName;
 	private double grossSalary;
 	private double minimumSalary;
 
-	private PaySlip(String adress, ArrayList<Concept> concepts, LocalDateTime dateOfIssue, String employeeName,
+	private PaySlip(String adress, List<Concept> concepts, LocalDateTime dateOfIssue, String employeeName,
 			double grossSalary, double minimumSalary) {
 		setAdress(adress);
 		this.concepts = new ArrayList<Concept>(concepts);
@@ -63,7 +63,7 @@ public class PaySlip {
 		return adress;
 	}
 
-	public ArrayList<Concept> getConcepts() {
+	public List<Concept> getConcepts() {
 		return concepts;
 	}
 

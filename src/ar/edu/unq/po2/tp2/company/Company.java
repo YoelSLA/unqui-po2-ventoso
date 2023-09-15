@@ -1,6 +1,7 @@
 package ar.edu.unq.po2.tp2.company;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import ar.edu.unq.po2.tp2.employee.Employee;
 import ar.edu.unq.po2.tp2.paySlip.PaySlip;
@@ -8,7 +9,7 @@ import ar.edu.unq.po2.tp2.paySlip.PaySlip;
 public class Company {
 
 	private int CUIT;
-	private ArrayList<Employee> employees;
+	private List<Employee> employees;
 	private String name;
 
 	public Company(int CUIT, String name) {
@@ -41,7 +42,7 @@ public class Company {
 		return CUIT;
 	}
 
-	public ArrayList<Employee> getEmployees() {
+	public List<Employee> getEmployees() {
 		return employees;
 	}
 

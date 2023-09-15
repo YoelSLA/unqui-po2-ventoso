@@ -3,6 +3,7 @@ package ar.edu.unq.po2.tp2.employee;
 import java.time.LocalDate;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import ar.edu.unq.po2.tp2.paySlip.Concept;
 
@@ -19,8 +20,8 @@ public class Temporal extends Employee {
 	}
 
 	@Override
-	public ArrayList<Concept> concepts(ArrayList<Concept> concepts) {
-		final ArrayList<Concept> conceptsTemporal = new ArrayList<>();
+	public List<Concept> concepts(List<Concept> concepts) {
+		final List<Concept> conceptsTemporal = new ArrayList<>();
 		return super.concepts(conceptsTemporal);
 	}
 

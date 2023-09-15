@@ -2,6 +2,7 @@ package ar.edu.unq.po2.tp2.employee;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 import ar.edu.unq.po2.tp2.paySlip.Concept;
 
@@ -18,8 +19,8 @@ public class Contracted extends Employee {
 	}
 
 	@Override
-	public ArrayList<Concept> concepts() {
-		ArrayList<Concept> concepts = new ArrayList<>();
+	public List<Concept> concepts() {
+		List<Concept> concepts = new ArrayList<>();
 		concepts.add(new Concept("Contractual Administrative Expenses: ", 50));
 		concepts.add(new Concept("Withholdigns = ", withholdings()));
 		concepts.add(new Concept("Net Salary = ", netSalary()));
