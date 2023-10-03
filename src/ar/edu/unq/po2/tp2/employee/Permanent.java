@@ -4,7 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import ar.edu.unq.po2.tp2.paySlip.Concept;
+import ar.edu.unq.po2.tp2.Concept;
+import ar.edu.unq.po2.tp2.MaritalStatus;
 
 public class Permanent extends Employee {
 
@@ -56,7 +57,7 @@ public class Permanent extends Employee {
 	}
 
 	private double maritalAllowance() {
-		return (getMaritalStatus().equals(MaritalStatus.CASADO)) ? 100 : 0;
+		return (getMaritalStatus().equals(MaritalStatus.MARRIED)) ? 100 : 0;
 	}
 
 	public int getAntiquity() {

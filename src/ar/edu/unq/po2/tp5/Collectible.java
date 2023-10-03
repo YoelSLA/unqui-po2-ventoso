@@ -6,6 +6,6 @@ public interface Collectible {
 	
 	void recordPayment();
 	
-	boolean hasPaymentRecord();
+	boolean hasRecordPayment();
 
 }

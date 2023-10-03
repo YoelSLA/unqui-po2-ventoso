@@ -5,7 +5,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import ar.edu.unq.po2.tp2.paySlip.Concept;
+import ar.edu.unq.po2.tp2.Concept;
+import ar.edu.unq.po2.tp2.MaritalStatus;
 
 public class Temporal extends Employee {
 

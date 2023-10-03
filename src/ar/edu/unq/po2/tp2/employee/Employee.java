@@ -7,8 +7,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import ar.edu.unq.po2.tp2.paySlip.Concept;
-import ar.edu.unq.po2.tp2.paySlip.PaySlip;
+import ar.edu.unq.po2.tp2.Concept;
+import ar.edu.unq.po2.tp2.MaritalStatus;
+import ar.edu.unq.po2.tp2.PaySlip;
 
 public abstract class Employee {
 
@@ -28,9 +29,31 @@ public abstract class Employee {
 		setName(name);
 		this.paySlips = new ArrayList<PaySlip>();
 	}
+	
+	public void addPaySlip(PaySlip paySlip) {
+		paySlips.add(paySlip);
+	}
 
 	public int age() {
 		return Period.between(birthDate, LocalDate.now()).getYears();
+	}
+	
+	public double amountGrossSalaryOf(int percentage) { // TEMPLATE METHOD
+		return grossSalary() * (percentage / 100);
+	}
+	
+	public List<Concept> concepts() {
+		return concepts(new ArrayList<Concept>());
+	}
+
+	public List<Concept> concepts(List<Concept> concepts) {
+		final List<Concept> conceptsEmployee = new ArrayList<Concept>();
+		concepts.add(new Concept("Medical Insurance: ", medicalInsurance()));
+		concepts.add(new Concept("Dues To A Pension Fund: ", duesToAPensionFund()));
+		concepts.add(new Concept("Withholdings: ", withholdings()));
+		concepts.add(new Concept("Net Salary = ", netSalary()));
+		return (List<Concept>) Stream.concat((concepts.stream()), conceptsEmployee.stream())
+				.collect(Collectors.toList());
 	}
 
 	public double duesToAPensionFund() {
@@ -49,34 +72,8 @@ public abstract class Employee {
 		return grossSalary() - withholdings();
 	}
 
-	public double amountGrossSalaryOf(int percentage) { // TEMPLATE METHOD
-		return grossSalary() * (percentage / 100);
-	}
-
 	public double withholdings() { // TEMPLATE METHOD
 		return duesToAPensionFund() + medicalInsurance();
-	}
-
-	public void addPaySlip(PaySlip paySlip) {
-		paySlips.add(paySlip);
-	}
-
-	private void setName(String name) {
-		this.name = name;
-	}
-	
-	public List<Concept> concepts() {
-		return concepts(new ArrayList<Concept>());
-	}
-
-	public List<Concept> concepts(List<Concept> concepts) {
-		final ArrayList<Concept> conceptsEmployee = new ArrayList<Concept>();
-		concepts.add(new Concept("Medical Insurance: ", medicalInsurance()));
-		concepts.add(new Concept("Dues To A Pension Fund: ", duesToAPensionFund()));
-		concepts.add(new Concept("Withholdings: ", withholdings()));
-		concepts.add(new Concept("Net Salary = ", netSalary()));
-		return (ArrayList<Concept>) Stream.concat((concepts.stream()), conceptsEmployee.stream())
-				.collect(Collectors.toList());
 	}
 
 	public String getAdress() {
@@ -113,6 +110,10 @@ public abstract class Employee {
 
 	public void setMinimumSalary(double minimumSalary) {
 		this.minimumSalary = minimumSalary;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

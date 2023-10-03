@@ -7,9 +7,7 @@ import java.time.LocalDate;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import ar.edu.unq.po2.tp2.company.Company;
 import ar.edu.unq.po2.tp2.employee.Contracted;
-import ar.edu.unq.po2.tp2.employee.MaritalStatus;
 import ar.edu.unq.po2.tp2.employee.Permanent;
 import ar.edu.unq.po2.tp2.employee.Temporal;
 
@@ -24,10 +22,10 @@ class CompanyTestCase {
 	void setup() {
 		cocaCola = new Company(2042341174, "CocaCola Company");
 		temporal = new Temporal("Brown 5066", LocalDate.of(2000, 2, 1), LocalDate.of(2023, 12, 31),
-				MaritalStatus.SOLTERO, 3000.0, "Yoel", 20);
-		permanent = new Permanent("Brown 5070", 6, LocalDate.of(1995, 7, 5), MaritalStatus.CASADO, 3200.0, "Gabriela",
+				MaritalStatus.SINGLE, 3000.0, "Yoel", 20);
+		permanent = new Permanent("Brown 5070", 6, LocalDate.of(1995, 7, 5), MaritalStatus.DIVORCED, 3200.0, "Gabriela",
 				2);
-		contracted = new Contracted("Brown 5080", LocalDate.of(1990, 12, 10), 1, MaritalStatus.CASADO, 4000.0,
+		contracted = new Contracted("Brown 5080", LocalDate.of(1990, 12, 10), 1, MaritalStatus.DIVORCED, 4000.0,
 				"Guillermo", "Efectivo");
 		cocaCola.addEmployee(temporal);
 		cocaCola.addEmployee(permanent);

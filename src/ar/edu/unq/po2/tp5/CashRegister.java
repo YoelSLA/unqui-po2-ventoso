@@ -13,10 +13,9 @@ public class CashRegister {
 
 	public double totalAmountToPay() {
 		return collectibles.stream().mapToDouble(Collectible::getPrice).sum();
-
 	}
 
-	public List<Collectible> getBuyOrders() {
+	public List<Collectible> collectibles() {
 		return collectibles;
 	}
 
