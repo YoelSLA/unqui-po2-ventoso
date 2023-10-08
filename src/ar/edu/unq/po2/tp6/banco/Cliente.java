@@ -1,22 +1,23 @@
-package ar.edu.unq.po2.tp6.bancoYPrestamos;
+package ar.edu.unq.po2.tp6.banco;
 
 import java.time.LocalDate;
 import java.time.Period;
 
+import ar.edu.unq.po2.tp6.banco.solicitud.Solicitud;
+
 public class Cliente {
 
-	private String apellido;
-	private String direccion;
+	private String apellido, direccion, nombre;
 	private LocalDate fechaNacimiento;
-	private String nombre;
-	private double sueldoNeto;
+	private Double sueldoNetoMensual;
 
-	public Cliente(String nombre, String apellido, String direccion, LocalDate fechaNacimiento, double sueldoNeto) {
-		this.nombre = nombre;
+	public Cliente(String apellido, String direccion, LocalDate fechaNacimiento, String nombre,
+			Double sueldoNetoMensual) {
 		this.apellido = apellido;
 		this.direccion = direccion;
 		this.fechaNacimiento = fechaNacimiento;
-		this.sueldoNeto = sueldoNeto;
+		this.nombre = nombre;
+		this.sueldoNetoMensual = sueldoNetoMensual;
 	}
 
 	public String getApellido() {
@@ -27,6 +28,10 @@ public class Cliente {
 		return direccion;
 	}
 
+	public int getEdad() {
+		return Period.between(fechaNacimiento, LocalDate.now()).getYears();
+	}
+
 	public LocalDate getFechaNacimiento() {
 		return fechaNacimiento;
 	}
@@ -35,22 +40,18 @@ public class Cliente {
 		return nombre;
 	}
 
-	public double getSueldoNeto() {
-		return sueldoNeto;
-	}
-
-	public int getEdad() {
-		return Period.between(fechaNacimiento, LocalDate.now()).getYears();
+	public Double getSueldoNetoMensual() {
+		return sueldoNetoMensual;
 	}
 
 	public Double getSueldoNetoAnual() {
 		final int cantidadMeses = 12;
-		return getSueldoNeto() * cantidadMeses;
+		return getSueldoNetoMensual() * cantidadMeses;
 	}
 
 	public void pedirSolicitudDeCredito(Solicitud solicitud, Banco banco) {
 		banco.otorgarSolicitudDeCreditoPara(solicitud, this);
-		
+
 	}
 
 }

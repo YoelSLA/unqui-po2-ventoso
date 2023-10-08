@@ -17,7 +17,7 @@ class ClienteTest {
 
 	@BeforeEach
 	void setUp() {
-		yoel = new Cliente("Yoel", "Ventoso", "Brown 5066", LocalDate.of(2000, Month.FEBRUARY, 1), 15000);
+		yoel = new Cliente("Yoel", "Ventoso", "Brown 5066", LocalDate.of(2000, Month.FEBRUARY, 1), 15000.00);
 	}
 
 	@Test
