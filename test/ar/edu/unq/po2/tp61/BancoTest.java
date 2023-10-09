@@ -60,7 +60,6 @@ class BancoTest {
 
 		bancoNacion.otorgarSolicitudDeCreditoPara(solicitud, yoel); // SUT
 		
-		
 		verify(solicitud, times(1)).esAceptable();
 		
 	}
